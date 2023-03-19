@@ -20,7 +20,7 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
     <title>Tienda Online</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="css/estilos.css">
-    <link rel="shortcut icon" href="./images/logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./images/logo.jpeg" type="image/x-icon">
 </head>
 
 <body>
@@ -30,8 +30,8 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
         <div class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
                 <a href="#" class="navbar-brand">
-                    <img src="images/logo.jpg">
-                    <strong>El Ingeniero</strong>
+                <img src="images/logo.jpeg" class="rounded-start">
+                <strong>El Ingeniero</strong>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -53,12 +53,12 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
     </header>
 
     <!-- Contenido -->
-    <main>
+    <main class="flex-shrink-0">
         <div class="container">
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
                 <?php foreach ($resultado as $row) { ?>
-                    <div class="col">
-                        <div class="card shadow-sm">
+                    <div class="col mb-2">
+                        <div class="card shadow-sm h-100">
                             <?php 
                                 $id = $row['id'];
                                 $imagen = "images/productos/" . $id . "/principal.jpg";

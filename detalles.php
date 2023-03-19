@@ -39,7 +39,7 @@ if ($id == '' || $token == '') {
             $imagenes = array();
             $dir = dir($dir_images);
 
-            while (($archivo = $dir->read() != false)) {
+            while (($archivo = $dir->read()) != false) {
                 if ($archivo != 'principal.jpg' && (strpos($archivo, 'jpg') || strpos($archivo, 'jpeg'))) {
                     $imagenes[] = $dir_images . $archivo;
                 }
@@ -143,9 +143,9 @@ if ($id == '' || $token == '') {
 
                     <p class="lead"><?php echo $descripcion; ?></p>
 
-                    <div class="d-grid gap-3  col-10 mx-auto">
+                    <div class="d-grid gap-3 col-10 mx-auto">
                         <button class="btn btn-primary" type="button">Comprar ahora</button>
-                        <button class="btn btn-outline-primary" type="button">Agregar al carrito</button>
+                        <button class="btn btn-outline-success" type="button">Agregar al carrito</button>
                     </div>
                 </div>
             </div>
