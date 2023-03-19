@@ -1,4 +1,5 @@
 <?php
+require 'config/config.php';
 require 'config/database.php';
 $db = new Database();
 $con = $db->conectar();
@@ -72,7 +73,7 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
                                 <p class="card-text">$ <?php echo number_format($row['precio'], 2, '.', ','); ?></p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
-                                        <a href="" class="btn btn-info">Detalles</a>
+                                        <a href="detalles.php?id=<?php echo $row['id']; ?>&token=<?php echo hash_hmac('sha1', $row['id'], KEY_TOKEN); ?>" class="btn btn-info">Detalles</a>
                                     </div>
                                     <a href="" class="btn btn-success">Agregar</a>
                                 </div>
