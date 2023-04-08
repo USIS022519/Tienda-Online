@@ -30,7 +30,7 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
         <div class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
                 <a href="#" class="navbar-brand">
-                <img src="images/logo.jpeg" class="rounded-start">
+                <img class="mb-2" src="./images/logo.png" alt="" width="100" height="100" class="img-circle">
                 <strong>El Ingeniero</strong>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
@@ -55,7 +55,7 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
     <!-- Contenido -->
     <main class="flex-shrink-0">
         <div class="container">
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
                 <?php foreach ($resultado as $row) { ?>
                     <div class="col mb-2">
                         <div class="card shadow-sm h-100">
@@ -84,6 +84,38 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
             </div>
         </div>
     </main>
+
+    <!-- footer -->
+    <footer class="pt-4 my-md-5 pt-md-5 border-top bg-primary navbar-dark">
+    <div class="row">
+    <h2 style="text-align: center;">Sé el primero en enterarte de las ofertas especiales <br> en nuestras redes sociales</h2>
+      <div class="col-12 col-md">
+        <img  class="mb-2" src="./images/logo.png" alt="" width="110" height="110">
+        <small class="d-block mb-3 text-body-secondary">&copy; 2023</small>
+      </div>
+      <div class="col-6 col-md">
+        <h5>¿Como podemos ayudarte?</h5>
+        <ul class="list-unstyled text-small">
+          <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Accesorios para celulares</a></li>
+          <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Herramientas de red</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Contactanos</h5>
+        <ul class="list-unstyled text-small">
+          <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Atención al cliente</a></li>
+          <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">+503 74187495</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Visita nuestras redes sociales</h5>
+        <ul class="list-unstyled text-small">
+          <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Facebook</a></li>
+          <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
