@@ -78,8 +78,8 @@ if ($id == '' || $token == '') {
     <header>
         <div class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-                <a href="#" class="navbar-brand">
-                    <img src="images/logo.jpg">
+                <a href="index.php" class="navbar-brand">
+                    <img src="images/logo.png" class="mg-2 rounded-circle">
                     <strong>El Ingeniero</strong>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
@@ -89,10 +89,10 @@ if ($id == '' || $token == '') {
                 <div class="collapse navbar-collapse" id="navbarHeader">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a href="#" class="nav-link active">Catalogo</a>
+                            <a href="index.php" class="nav-link active">Catalogo</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">Contacto</a>
+                            <!-- <a href="#" class="nav-link">Contacto</a> -->
                         </li>
                     </ul>
                     <a href="carrito.php" class="btn btn-warning">Carrito</a>
@@ -109,15 +109,15 @@ if ($id == '' || $token == '') {
                     <div id="carouselImages" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="<?php echo $rutaImg; ?>" class="d-block w-100" >
+                                <img src="<?php echo $rutaImg; ?>" class="d-block w-100">
                             </div>
-                            
+
                             <?php foreach ($imagenes as $img) { ?>
                                 <div class="carousel-item">
                                     <img src="<?php echo $img; ?>" class="d-block w-100">
                                 </div>
                             <?php }  ?>
-                                
+
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselImages" data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -133,13 +133,14 @@ if ($id == '' || $token == '') {
                 <div class="col-md-6 order-md-2">
                     <h2><?php echo $nombre; ?></h2>
 
-                    <?php if ($descuento > 0) { ?> 
+                    <?php if ($descuento > 0) { ?>
                         <p><del><?php echo MONEDA . number_format($precio, 2, '.', ','); ?></del></p>
                         <h2><?php echo MONEDA . number_format($precio_desc, 2, '.', ','); ?>
-                        <small class="text-success"><?php echo $descuento; ?>% descuento</small> </h2>
-                     <?php } else { ?>
-                         <h2><?php echo MONEDA . number_format($precio, 2, '.', ','); ?></h2>
-                     <?php } ?>
+                            <small class="text-success"><?php echo $descuento; ?>% descuento</small>
+                        </h2>
+                    <?php } else { ?>
+                        <h2><?php echo MONEDA . number_format($precio, 2, '.', ','); ?></h2>
+                    <?php } ?>
 
                     <p class="lead"><?php echo $descripcion; ?></p>
 
@@ -151,6 +152,16 @@ if ($id == '' || $token == '') {
             </div>
         </div>
     </main>
+
+    <hr>
+    <!-- Footer -->
+    <footer class="blog-footer" style="text-align: center;">
+        <p> <strong> Bienvenido a </strong><a href="index.php">El Ingeniero</a> <strong>by</strong> <a href="index.php">@Negocios Electrónicos</a>.</p>
+        <p>
+            <a href="#">Emprendimiento Estudiantil</a>
+        </p>
+    </footer>
+    <hr>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
