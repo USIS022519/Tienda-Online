@@ -37,16 +37,18 @@ if ($id == '' || $token == '') {
             }
 
             $imagenes = array();
-            $dir = dir($dir_images);
+            if (file_exists($dir_images)) {
+                $dir = dir($dir_images);
 
-            while (($archivo = $dir->read()) != false) {
-                if ($archivo != 'principal.jpg' && (strpos($archivo, 'jpg') || strpos($archivo, 'jpeg'))) {
-                    $imagenes[] = $dir_images . $archivo;
+                while (($archivo = $dir->read()) != false) {
+                    if ($archivo != 'principal.jpg' && (strpos($archivo, 'jpg') || strpos($archivo, 'jpeg'))) {
+                        $imagenes[] = $dir_images . $archivo;
+                    }
                 }
+                $dir->close();
             }
-            $dir->close();
         }
-        $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
+        /*$resultado = $sql->fetchAll(PDO::FETCH_ASSOC); */
     } else {
         echo 'Error al procesar la petición';
     }
@@ -66,7 +68,7 @@ if ($id == '' || $token == '') {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda Online</title>
+    <title>El Ingeniero</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="shortcut icon" href="./images/logo.png" type="image/x-icon">
@@ -76,10 +78,10 @@ if ($id == '' || $token == '') {
 
     <!-- Menu -->
     <header>
-        <div class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="navbar navbar-expand-lg navbar-dark bg-info">
             <div class="container">
                 <a href="index.php" class="navbar-brand">
-                    <img src="images/logo.png" class="mg-2 rounded-circle">
+                    <img src="images/logo.png" class="mg-2 rounded-circle" alt="" width="70" height="70">
                     <strong>El Ingeniero</strong>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
@@ -95,7 +97,7 @@ if ($id == '' || $token == '') {
                             <!-- <a href="#" class="nav-link">Contacto</a> -->
                         </li>
                     </ul>
-                    <a href="carrito.php" class="btn btn-warning">Carrito</a>
+                    <a href="checkout.php" class="btn btn-success">Carrito <span id="num_cart" class="badge bg-info"><?php echo $num_cart; ?></span></a>
                 </div>
             </div>
         </div>
@@ -145,8 +147,9 @@ if ($id == '' || $token == '') {
                     <p class="lead"><?php echo $descripcion; ?></p>
 
                     <div class="d-grid gap-3 col-10 mx-auto">
-                        <button class="btn btn-primary" type="button">Comprar ahora</button>
-                        <button class="btn btn-outline-success" type="button">Agregar al carrito</button>
+                        <a class="btn btn-outline-success" type="button" href="https://api.whatsapp.com/send?phone=+50374187495&text=Hola%20,Puedes%20realizar%20tu%20pedido%20por%20este%20medio%20electronico." target="_blank">Realizar pedido</a>
+                        <button class="btn btn-outline-success" type="button" onclick="addProducto(<?php echo
+                        $id; ?>, '<?php echo $token_tmp; ?>')">Agregar al carrito</button>
                     </div>
                 </div>
             </div>
@@ -164,6 +167,28 @@ if ($id == '' || $token == '') {
     <hr>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+
+    <script>
+        function addProducto(id, token) {
+            let url = 'clases/carrito.php'
+            let formData = new FormData()
+            formData.append('id', id)
+            formData.append('token', token)
+
+            fetch(url, {
+                    method: 'POST',
+                    body: formData,
+                    mode: 'cors'
+                }).then(response => response.json())
+                .then(data => {
+                    if (data.ok) {
+                        let elemento = document.getElementById("num_cart");
+                        elemento.innerHTML = data.numero
+                    }
+                })
+        }
+    </script>
 </body>
 
 </html>
