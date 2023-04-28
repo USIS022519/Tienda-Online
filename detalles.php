@@ -97,7 +97,7 @@ if ($id == '' || $token == '') {
                             <!-- <a href="#" class="nav-link">Contacto</a> -->
                         </li>
                     </ul>
-                    <a href="checkout.php" class="btn btn-success">Carrito <span id="num_cart" class="badge bg-info"><?php echo $num_cart; ?></span></a>
+                   <!-- <a href="checkout.php" class="btn btn-success">Carrito <span id="num_cart" class="badge bg-info"><?php echo $num_cart; ?></span></a> -->
                 </div>
             </div>
         </div>
@@ -148,8 +148,8 @@ if ($id == '' || $token == '') {
 
                     <div class="d-grid gap-3 col-10 mx-auto">
                         <a class="btn btn-outline-success" type="button" href="https://api.whatsapp.com/send?phone=+50374187495&text=Hola%20,Puedes%20realizar%20tu%20pedido%20por%20este%20medio%20electronico." target="_blank">Realizar pedido</a>
-                        <button class="btn btn-outline-success" type="button" onclick="addProducto(<?php echo
-                        $id; ?>, '<?php echo $token_tmp; ?>')">Agregar al carrito</button>
+                       <!-- <button class="btn btn-outline-success" type="button" onclick="addProducto(<?php echo
+                        $id; ?>, '<?php echo $token_tmp; ?>')">Agregar al carrito</button> -->
                     </div>
                 </div>
             </div>
